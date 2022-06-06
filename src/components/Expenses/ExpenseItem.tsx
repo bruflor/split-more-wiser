@@ -1,6 +1,7 @@
+import React from "react";
 import "./ExpenseItem.css";
 import ExpenseDate from "./ExpenseDate";
-import Card from "./Card";
+import Card from "../UI/Card";
 
 interface IPropsExpensive {
   id: string;
@@ -9,7 +10,7 @@ interface IPropsExpensive {
   date: Date;
 }
 
-function ExpenseItem(props: IPropsExpensive) {
+const ExpenseItem = (props: IPropsExpensive) => {
   return (
     <Card className="expense-item">
       <ExpenseDate date={props.date} />
@@ -19,6 +20,6 @@ function ExpenseItem(props: IPropsExpensive) {
       </div>
     </Card>
   );
-}
+};
 
 export default ExpenseItem;

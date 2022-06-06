@@ -1,7 +1,7 @@
 import React from "react";
-import Expenses from "./components/Expenses";
+import Expenses from "./components/Expenses/Expenses";
 
-function App() {
+const App = () => {
   return (
     <div className="App">
       <header className="App-header"></header>
@@ -9,6 +9,6 @@ function App() {
       <Expenses />
     </div>
   );
-}
+};
 
 export default App;

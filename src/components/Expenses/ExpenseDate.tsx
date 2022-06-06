@@ -1,10 +1,12 @@
+import React from "react";
+
 import "./ExpenseDate.css";
 
 interface IPropsDate {
   date: Date;
 }
 
-function ExpenseDate(props: IPropsDate) {
+const ExpenseDate = (props: IPropsDate) => {
   const month = props.date.toLocaleString("en-US", { month: "long" });
   const day = props.date.toLocaleString("en-US", { day: "2-digit" });
   const year = props.date.getFullYear();
@@ -16,6 +18,6 @@ function ExpenseDate(props: IPropsDate) {
       <div className="expense-date__day">{day}</div>
     </div>
   );
-}
+};
 
 export default ExpenseDate;
