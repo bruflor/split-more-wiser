@@ -2,10 +2,16 @@ import React, { useState } from "react";
 import "./ExpenseForm.css";
 
 interface IformProps {
-  onSaveExpenseData: Function;
+  onSaveExpenseData: (arg0: ExpenseProps) => void;
 }
 
-const ExpenseForm = (props: IformProps) => {
+interface ExpenseProps {
+  title: string;
+  amount: string;
+  date: Date;
+}
+
+const ExpenseForm = ({ onSaveExpenseData }: IformProps) => {
   //useState for each input
   const [enteredTitle, setEnteredTitle] = useState("");
   const [enteredAmount, setEnteredAmount] = useState("");
@@ -35,7 +41,7 @@ const ExpenseForm = (props: IformProps) => {
     };
 
     //this prop is a function
-    props.onSaveExpenseData(expenseData);
+    onSaveExpenseData(expenseData);
 
     setEnteredTitle("");
     setEnteredAmount("");
