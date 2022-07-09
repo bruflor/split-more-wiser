@@ -1,6 +1,7 @@
 import React from "react";
 
 import Card from "../UI/Card";
+import { ExpensesFilter } from "../UI/ExpensesFilter";
 import ExpenseItem from "./ExpenseItem";
 import "./Expenses.css";
 
@@ -26,9 +27,13 @@ const Expenses = () => {
       date: new Date(2021, 5, 12),
     },
   ];
-
+  // const showSelectedYear = () => {};
   return (
     <Card className="expenses">
+      <ExpensesFilter>
+        <p>the year selected was {}</p>
+      </ExpensesFilter>
+
       <ExpenseItem
         id={expenses[0].id}
         title={expenses[0].title}

@@ -7,10 +7,10 @@ import "./NewExpense.css";
 // }
 
 interface NewExpenseProps {
-  onAddExpense: (arg0: ExpensePorps) => void;
+  onAddExpense: (arg0: ExpenseProps) => void;
 }
 
-interface ExpensePorps {
+interface ExpenseProps {
   //   id: string;
   title: string;
   amount: string | number;
@@ -19,7 +19,7 @@ interface ExpensePorps {
 
 const NewExpense = ({ onAddExpense }: NewExpenseProps) => {
   //Function  saves the data
-  const saveExpenseDataHandler = (enteredExpenseData: ExpensePorps) => {
+  const saveExpenseDataHandler = (enteredExpenseData: ExpenseProps) => {
     const expenseData = {
       ...enteredExpenseData,
       id: Math.random().toString(),
