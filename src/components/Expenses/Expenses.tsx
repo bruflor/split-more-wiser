@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import Card from "../UI/Card";
-import { ExpensesFilter } from "../UI/ExpensesFilter";
+import { ExpensesFilter } from "./ExpensesFilter";
 import ExpenseItem from "./ExpenseItem";
 import "./Expenses.css";
 
@@ -43,7 +43,18 @@ const Expenses = () => {
         handle={(event) => onSelected(event)}
       />
 
-      <ExpenseItem
+      {expenses.map((expense) => {
+        return (
+          <ExpenseItem
+            id={expense.id}
+            key={expense.id}
+            title={expense.title}
+            amount={expense.amount}
+            date={expense.date}
+          />
+        );
+      })}
+      {/* <ExpenseItem
         id={expenses[0].id}
         title={expenses[0].title}
         amount={expenses[0].amount}
@@ -66,7 +77,7 @@ const Expenses = () => {
         title={expenses[3].title}
         amount={expenses[3].amount}
         date={expenses[3].date}
-      />
+      /> */}
     </Card>
   );
 };
