@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import Card from "../UI/Card";
 import { ExpensesFilter } from "../UI/ExpensesFilter";
@@ -27,12 +27,21 @@ const Expenses = () => {
       date: new Date(2021, 5, 12),
     },
   ];
-  // const showSelectedYear = () => {};
+  const years = ["2022", "2021", "2020", "2019"];
+  const [filterYear, setFilteryear] = useState(years[0]);
+
+  const onSelected = (option: any) => {
+    setFilteryear(option.target.value);
+  };
+  console.log(filterYear);
+
   return (
     <Card className="expenses">
-      <ExpensesFilter>
-        <p>the year selected was {}</p>
-      </ExpensesFilter>
+      <ExpensesFilter
+        label={"Filter by year"}
+        selectValue={years}
+        handle={(event) => onSelected(event)}
+      />
 
       <ExpenseItem
         id={expenses[0].id}
