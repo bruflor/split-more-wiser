@@ -1,15 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import ExpenseForm from "./ExpenseForm";
 import "./NewExpense.css";
-
-// interface INewExpense {
-//   onAddExpense: Function;
-// }
-
 interface NewExpenseProps {
   onAddExpense: (arg0: ExpenseProps) => void;
 }
-
 interface ExpenseProps {
   //   id: string;
   title: string;
@@ -18,6 +12,8 @@ interface ExpenseProps {
 }
 
 const NewExpense = ({ onAddExpense }: NewExpenseProps) => {
+  const [openForm, setOpenForm] = useState(false);
+
   //Function  saves the data
   const saveExpenseDataHandler = (enteredExpenseData: ExpenseProps) => {
     const expenseData = {
@@ -29,7 +25,14 @@ const NewExpense = ({ onAddExpense }: NewExpenseProps) => {
 
   return (
     <div className="new-expense">
-      <ExpenseForm onSaveExpenseData={saveExpenseDataHandler} />
+      {openForm ? (
+        <ExpenseForm
+          onSaveExpenseData={saveExpenseDataHandler}
+          isOpenForm={() => setOpenForm(false)}
+        />
+      ) : (
+        <button onClick={() => setOpenForm(true)}>Add New Expense</button>
+      )}
     </div>
   );
 };

@@ -3,6 +3,7 @@ import "./ExpenseForm.css";
 
 interface IformProps {
   onSaveExpenseData: (arg0: ExpenseProps) => void;
+  isOpenForm: (arg0: boolean) => void;
 }
 
 interface ExpenseProps {
@@ -11,7 +12,7 @@ interface ExpenseProps {
   date: Date;
 }
 
-const ExpenseForm = ({ onSaveExpenseData }: IformProps) => {
+const ExpenseForm = ({ onSaveExpenseData, isOpenForm }: IformProps) => {
   //useState for each input
   const [enteredTitle, setEnteredTitle] = useState("");
   const [enteredAmount, setEnteredAmount] = useState("");
@@ -80,6 +81,13 @@ const ExpenseForm = ({ onSaveExpenseData }: IformProps) => {
           ></input>
         </div>
         <div className="new-expense__actions">
+          <button
+            onClick={() => {
+              isOpenForm(false);
+            }}
+          >
+            Cancel
+          </button>
           <button type="submit">Add Expense</button>
         </div>
       </div>
