@@ -1,7 +1,7 @@
 import { Chart } from "../Chart/Chart";
 
 interface ExpensesChartProps {
-  expenses: any;
+  expenses: { amount: number; id: string; date: Date; title: string }[];
 }
 
 export const ExpensesChart = (props: ExpensesChartProps) => {
@@ -19,7 +19,6 @@ export const ExpensesChart = (props: ExpensesChartProps) => {
     { label: "Nov", value: 0 },
     { label: "Dec", value: 0 },
   ];
-
   for (const expense of props.expenses) {
     const expenseMonth = expense.date.getMonth();
     chartDataPoints[expenseMonth].value += expense.amount;

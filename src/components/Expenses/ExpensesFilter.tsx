@@ -10,7 +10,7 @@ export const ExpensesFilter = ({ selectValue, handle, label }: IValues) => {
       <div className="expenses-filter__control">
         <label>{label}</label>
         <select onChange={handle}>
-          {selectValue.map((value: any) => {
+          {selectValue.map((value: number) => {
             return (
               <option key={value} value={value}>
                 {value}

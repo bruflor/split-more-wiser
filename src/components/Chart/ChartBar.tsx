@@ -1,5 +1,11 @@
 import "./ChartBar.css";
-export const ChartBar = (props: any) => {
+
+interface ChartBarProps {
+  maxValue: number;
+  value: number;
+  label: string;
+}
+export const ChartBar = (props: ChartBarProps) => {
   let barFillHeight = "0%";
 
   if (props.maxValue > 0) {
